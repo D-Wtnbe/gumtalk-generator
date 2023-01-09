@@ -24,9 +24,9 @@ export default function Home() {
         </Link>
         <Link
           href="/jpn"
-          className="transform rounded-md border border-slate-200 px-5 py-3 font-medium text-slate-900 transition-colors hover:bg-slate-50"
+          className="transform rounded-md bg-indigo-600/95 px-5 py-3 font-medium text-white transition-colors hover:bg-indigo-700"
         >
-          最近のGoogle検索のトレンドから1つ
+          最近のGoogle検索トレンドから1つ
         </Link>
       </div>
     </div>
