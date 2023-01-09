@@ -6,7 +6,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className="app">
     <Head>
-      <title>タイトル</title>
+      <title>ガムトークジェネレーター</title>
     </Head>
   <Component {...pageProps} />
   </div>
