@@ -23,7 +23,7 @@ export default function Home() {
           日本語名詞からランダムで1つ
         </Link>
         <Link
-          href="/jpn"
+          href="/trend"
           className="transform rounded-md bg-indigo-600/95 px-5 py-3 font-medium text-white transition-colors hover:bg-indigo-700"
         >
           最近のGoogle検索トレンドから1つ
