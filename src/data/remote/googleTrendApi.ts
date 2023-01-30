@@ -13,7 +13,9 @@ const getSheets = () => {
   return google.sheets({ version: "v4", auth: jwt });
 };
 
-export const getGoogleTrendContents = async (): Promise<googleTrendContents[]> => {
+export const getGoogleTrendContents = async (): Promise<
+  googleTrendContents[]
+> => {
   const sheets = getSheets();
   const response = await sheets.spreadsheets.values.get({
     spreadsheetId: process.env.SHEET_ID,
@@ -23,10 +25,12 @@ export const getGoogleTrendContents = async (): Promise<googleTrendContents[]> =
   if (rows) {
     return rows.slice(1).map((row): googleTrendContents => {
       return {
-      date: row[0],
-      content: row[1],
-    };
-  });
-}
-return [];
+        date: row[0],
+        content: row[1],
+        newsTitle: row[2],
+        newsLink: row[3],
+      };
+    });
+  }
+  return [];
 };
