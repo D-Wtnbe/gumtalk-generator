@@ -8,6 +8,10 @@ export default function App({ Component, pageProps }: AppProps) {
     <div className="app">
       <Head>
         <title>ガムトークジェネレーター</title>
+        <meta name="description" content="カードに表示されたお題について話をするゲーム" />
+        <meta property="og:title" content="ガムトークジェネレーター" />
+        <meta property="og:url" content="https://gumtalk-generator.vercel.app/" />
+        <meta property="og:image" content="/icon.png" />
       </Head>
       <Component {...pageProps} />
       <Analytics />
