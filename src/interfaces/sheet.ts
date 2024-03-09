@@ -14,3 +14,9 @@ const japaneseNounContentsSchema = z.object({
 });
 
 export type japaneseNounContents = z.infer<typeof japaneseNounContentsSchema>;
+
+const japanesePhraseContentsSchema = z.object({
+  content: z.string(),
+});
+
+export type japanesePhraseContents = z.infer<typeof japanesePhraseContentsSchema>;

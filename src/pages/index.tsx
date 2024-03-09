@@ -28,6 +28,12 @@ export default function Home() {
         >
           最近のGoogle検索トレンドから1つ
         </Link>
+        <Link
+          href="/phrase"
+          className="transform rounded-md bg-indigo-600/95 px-5 py-3 font-medium text-white transition-colors hover:bg-indigo-700"
+        >
+          会話に使えるフレーズからランダムで1つ
+        </Link>
       </div>
     </div>
   );
