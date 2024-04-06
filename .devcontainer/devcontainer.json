@@ -12,7 +12,6 @@
 		}
 	},
 	"forwardPorts": [3000],
-	"postCreateCommand": "sudo chmod 755 .devcontainer/init.sh && .devcontainer/init.sh",
 	"customizations": {
 		"vscode": {
 			"extensions": [
