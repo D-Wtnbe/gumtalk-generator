@@ -1,6 +1,7 @@
 import { Header } from "components/header/header";
 import { useGoogleTrendCard } from "components/hooks/card/googleTrendCard";
 import { googleTrendContents } from "interfaces/sheet";
+import { JSX } from "react";
 
 export const GoogleTrendCard = ({
   googleTrendContents,

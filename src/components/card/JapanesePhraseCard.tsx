@@ -1,5 +1,6 @@
 import { useJapanesePhraseCard } from "components/hooks/card/japanesePhraseCard";
 import { japanesePhraseContents } from "interfaces/sheet";
+import { JSX } from "react";
 
 export const JapanesePhraseCard = ({
   japanesePhraseContents,

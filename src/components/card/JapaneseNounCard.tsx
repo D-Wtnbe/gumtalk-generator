@@ -1,5 +1,6 @@
 import { useJapaneseNounCard } from "components/hooks/card/japaneseNounCard";
 import { japaneseNounContents } from "interfaces/sheet";
+import { JSX } from "react";
 
 export const JapaneseNounCard = ({
   japaneseNounContents,
