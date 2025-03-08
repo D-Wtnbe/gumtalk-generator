@@ -4,24 +4,23 @@
   "private": true,
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/font": "^13.1.1",
     "@types/node": "22.13.10",
-    "@types/react": "18.3.18",
-    "@types/react-dom": "18.3.5",
+    "@types/react": "19.0.10",
+    "@types/react-dom": "19.0.4",
     "@vercel/analytics": "^1.0.0",
     "@vercel/speed-insights": "^1.0.11",
     "autoprefixer": "^10.4.13",
     "eslint": "9.22.0",
-    "eslint-config-next": "13.5.8",
+    "eslint-config-next": "15.2.1",
     "google-spreadsheet": "^4.1.1",
     "googleapis": "^144.0.0",
-    "next": "14.2.24",
+    "next": "15.2.1",
     "postcss": "^8.4.38",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -33,5 +32,11 @@
     "eslint-plugin-tailwindcss": "^3.8.0",
     "prettier": "^3.0.0",
     "prettier-plugin-tailwindcss": "^0.6.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.0.10",
+      "@types/react-dom": "19.0.4"
+    }
   }
 }
