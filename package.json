@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/node": "22.13.10",
+    "@types/node": "22.14.0",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
     "@vercel/analytics": "^1.0.0",
