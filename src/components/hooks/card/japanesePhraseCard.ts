@@ -11,7 +11,7 @@ export const useJapanesePhraseCard = (
     ];
   useEffect(() => {
     setItem(japanesePhraseItem);
-  }, []);
+  }, [japanesePhraseItem]);
 
   // カードクリック
   const handleClick = () => {
