@@ -9,7 +9,7 @@ export const useGoogleTrendCard = (
     googleTrendContents[Math.floor(Math.random() * googleTrendContents.length)];
   useEffect(() => {
     setItem(googleTrendItem);
-  }, []);
+  }, [googleTrendItem]);
 
   // カードクリック
   const handleClick = () => {
