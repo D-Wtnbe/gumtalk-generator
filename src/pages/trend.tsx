@@ -11,7 +11,7 @@ type TrendProps = {
 export default function Trend(props: TrendProps) {
   const { googleTrendContents } = props;
   return (
-    <div>
+    <div className="min-h-screen">
       <Header title="Googleトレンド" />
       <main>
         <GoogleTrendCard googleTrendContents={googleTrendContents} />
@@ -19,6 +19,7 @@ export default function Trend(props: TrendProps) {
     </div>
   );
 }
+
 export const getServerSideProps: GetServerSideProps = async () => {
   const googleTrendContents = await getGoogleTrendContents();
   return {

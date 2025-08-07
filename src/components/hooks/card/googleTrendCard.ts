@@ -20,12 +20,12 @@ export const useGoogleTrendCard = (
   }, [getRandomItem]);
 
   // カードクリック
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     const randomItem = getRandomItem();
     if (randomItem) {
       setItem(randomItem);
     }
-  };
+  }, [getRandomItem]);
 
   return { item, handleClick };
 };
