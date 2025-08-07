@@ -54,13 +54,9 @@ export const JapanesePhraseCard = ({
                 transition={{ duration: 0.5 }}
                 className="space-y-2 flex flex-col items-center justify-center h-full"
               >
-                <div className="text-3xl mb-1">🎭</div>
-                <h2 className="text-lg md:text-xl font-bold text-gray-800 font-zenMaru">
-                  会話フレーズ
-                </h2>
                 <div className="bg-gradient-to-r from-accent-500 to-primary-500 bg-clip-text text-transparent flex-1 flex flex-col justify-center">
                   <p className="text-responsive font-bold font-zenMaru break-words text-center px-4 leading-tight">
-                    「{item?.content}」
+                    {item?.content}
                   </p>
                 </div>
               </motion.div>

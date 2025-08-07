@@ -54,16 +54,9 @@ export const JapaneseNounCard = ({
                 transition={{ duration: 0.5 }}
                 className="space-y-2 flex flex-col items-center justify-center h-full"
               >
-                <div className="text-3xl mb-1">💭</div>
-                <h2 className="text-lg md:text-xl font-bold text-gray-800 font-zenMaru">
-                  お題
-                </h2>
                 <div className="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent flex-1 flex flex-col justify-center">
                   <p className="text-responsive-large font-bold font-zenMaru break-words text-center px-2 leading-tight">
                     {item?.content}
-                  </p>
-                  <p className="text-xs md:text-sm mt-1 text-gray-600">
-                    の話
                   </p>
                 </div>
               </motion.div>
