@@ -24,12 +24,17 @@ export const GoogleTrendCard = ({
           </button>
         </div>
         <h1 className="mb-3 text-3xl font-bold ">ニュースリンク</h1>
-        {/* <div className="mt-0 ml-0 mr-5 mb-5 h-20 w-80 items-center justify-center border-2 border-indigo-500"> */}
-        <div className="mt-0 ml-0 mr-5 mb-5 block h-20 w-auto cursor-pointer bg-indigo-200 px-6 pt-6 pb-10 text-center align-baseline font-zenMaru text-lg font-semibold">
-          <a href={item?.newsLink} target="_blank" rel="noreferrer">
-            {item?.newsTitle}
-          </a>
-        </div>
+        {item?.newsTitle && item?.newsLink ? (
+          <div className="mt-0 ml-0 mr-5 mb-5 block h-20 w-auto cursor-pointer bg-indigo-200 px-6 pt-6 pb-10 text-center align-baseline font-zenMaru text-lg font-semibold">
+            <a href={item.newsLink} target="_blank" rel="noreferrer">
+              {item.newsTitle}
+            </a>
+          </div>
+        ) : (
+          <div className="mt-0 ml-0 mr-5 mb-5 block h-20 w-auto bg-gray-200 px-6 pt-6 pb-10 text-center align-baseline font-zenMaru text-lg font-semibold">
+            ニュースリンクなし
+          </div>
+        )}
       </section>
     </>
   );
