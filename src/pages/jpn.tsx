@@ -10,14 +10,15 @@ export default function Jpn({
   japaneseNounContents: japaneseNounContents[];
 }) {
   return (
-    <>
+    <div className="min-h-screen">
       <Header title="日本語名詞" />
       <main>
         <JapaneseNounCard japaneseNounContents={japaneseNounContents} />
       </main>
-    </>
+    </div>
   );
 }
+
 export const getServerSideProps: GetServerSideProps = async () => {
   const japaneseNounContents = await getJapaneseNounContents();
   return {
