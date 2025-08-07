@@ -3,8 +3,8 @@ import { z } from "zod";
 const googleTrendContentsSchema = z.object({
   date: z.string(),
   content: z.string(),
-  newsTitle: z.string(),
-  newsLink: z.string(),
+  newsTitle: z.string().nullable(),
+  newsLink: z.string().nullable(),
 });
 
 export type googleTrendContents = z.infer<typeof googleTrendContentsSchema>;

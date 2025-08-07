@@ -15,20 +15,20 @@ export const Header = ({ title }: { title: string }): JSX.Element => (
         <nav className="hidden space-x-10 md:flex">
           <Link
             href="/jpn"
-            className="block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:hover:text-blue-700 lg:dark:hover:bg-transparent lg:hover:text-blue-700"
+            className="text-base font-medium text-gray-700 hover:text-blue-700 transition-colors"
           >
             日本語名詞
           </Link>
           <Link
             href="/trend"
-            className="block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:hover:text-blue-700"
+            className="text-base font-medium text-gray-700 hover:text-blue-700 transition-colors"
             aria-current="page"
           >
             Googleトレンド
           </Link>
           <Link
             href="/phrase"
-            className="block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:hover:text-blue-700"
+            className="text-base font-medium text-gray-700 hover:text-blue-700 transition-colors"
             aria-current="page"
           >
             フレーズ
@@ -42,16 +42,23 @@ export const Header = ({ title }: { title: string }): JSX.Element => (
           <div className="grid grid-cols-2 gap-y-4 gap-x-8">
           <Link
             href="/jpn"
-            className="block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:hover:text-blue-700 lg:dark:hover:bg-transparent"
+            className="text-base font-medium text-gray-700 hover:text-blue-700 transition-colors"
           >
             日本語名詞
           </Link>
           <Link
             href="/trend"
-            className="block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:hover:text-blue-700 lg:dark:hover:bg-transparent lg:dark:hover:text-white"
+            className="text-base font-medium text-gray-700 hover:text-blue-700 transition-colors"
             aria-current="page"
           >
             Googleトレンド
+          </Link>
+          <Link
+            href="/phrase"
+            className="text-base font-medium text-gray-700 hover:text-blue-700 transition-colors"
+            aria-current="page"
+          >
+            フレーズ
           </Link>
           </div>
         </div>

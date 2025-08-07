@@ -23,14 +23,16 @@ export const getGoogleTrendContents = async (): Promise<
   });
   const rows = response.data.values;
   if (rows) {
-    return rows.slice(1).map((row): googleTrendContents => {
-      return {
-        date: row[0],
-        content: row[1],
-        newsTitle: row[2],
-        newsLink: row[3],
-      };
-    });
+    return rows.slice(1)
+      .filter((row) => row[0] && row[1]) // 必須フィールドをチェック
+      .map((row): googleTrendContents => {
+        return {
+          date: row[0] || "",
+          content: row[1] || "",
+          newsTitle: row[2] || null,
+          newsLink: row[3] || null,
+        };
+      });
   }
   return [];
 };

@@ -24,11 +24,13 @@ export const getJapaneseNounContents = async (): Promise<
   const rows = response.data.values;
 
   if (rows) {
-    return rows.slice(1).map((row): japaneseNounContents => {
-      return {
-        content: row[0],
-      };
-    });
+    return rows.slice(1)
+      .filter((row) => row[0]) // 必須フィールドをチェック
+      .map((row): japaneseNounContents => {
+        return {
+          content: row[0] || "",
+        };
+      });
   }
   return [];
 };

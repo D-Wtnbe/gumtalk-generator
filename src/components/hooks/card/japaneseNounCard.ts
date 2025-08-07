@@ -1,21 +1,30 @@
 import { japaneseNounContents } from "interfaces/sheet";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 export const useJapaneseNounCard = (
   japaneseNounContents: japaneseNounContents[]
 ) => {
   const [item, setItem] = useState<japaneseNounContents>();
-  const japaneseNounItem =
-    japaneseNounContents[
-      Math.floor(Math.random() * japaneseNounContents.length)
-    ];
+
+  // ランダムなアイテムを取得する関数
+  const getRandomItem = useCallback(() => {
+    if (japaneseNounContents.length === 0) return undefined;
+    return japaneseNounContents[Math.floor(Math.random() * japaneseNounContents.length)];
+  }, [japaneseNounContents]);
+
   useEffect(() => {
-    setItem(japaneseNounItem);
-  }, [japaneseNounItem]);
+    const randomItem = getRandomItem();
+    if (randomItem) {
+      setItem(randomItem);
+    }
+  }, [getRandomItem]);
 
   // カードクリック
   const handleClick = () => {
-    setItem(japaneseNounItem);
+    const randomItem = getRandomItem();
+    if (randomItem) {
+      setItem(randomItem);
+    }
   };
 
   return { item, handleClick };

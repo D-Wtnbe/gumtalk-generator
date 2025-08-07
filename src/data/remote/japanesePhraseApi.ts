@@ -24,11 +24,13 @@ japanesePhraseContents[]
   const rows = response.data.values;
 
   if (rows) {
-    return rows.slice(1).map((row): japanesePhraseContents => {
-      return {
-        content: row[0],
-      };
-    });
+    return rows.slice(1)
+      .filter((row) => row[0]) // 必須フィールドをチェック
+      .map((row): japanesePhraseContents => {
+        return {
+          content: row[0] || "",
+        };
+      });
   }
   return [];
 };
