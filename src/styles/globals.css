@@ -1,8 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+/* Tailwind CSS v4 テーマ設定 */
+@theme {
+  /* フォント設定 */
+  --font-family-zen-maru: "Zen Maru Gothic", sans-serif;
+
+  /* プライマリカラー */
+  --color-primary-50: #fef2f2;
+  --color-primary-100: #fde6e6;
+  --color-primary-200: #fbd5d5;
+  --color-primary-300: #f8b4b4;
+  --color-primary-400: #f48888;
+  --color-primary-500: #ef4444;
+  --color-primary-600: #dc2626;
+  --color-primary-700: #b91c1c;
+  --color-primary-800: #991b1b;
+  --color-primary-900: #7f1d1d;
+
+  /* セカンダリカラー */
+  --color-secondary-50: #f0f9ff;
+  --color-secondary-100: #e0f2fe;
+  --color-secondary-200: #bae6fd;
+  --color-secondary-300: #7dd3fc;
+  --color-secondary-400: #38bdf8;
+  --color-secondary-500: #0ea5e9;
+  --color-secondary-600: #0284c7;
+  --color-secondary-700: #0369a1;
+  --color-secondary-800: #075985;
+  --color-secondary-900: #0c4a6e;
+
+  /* アクセントカラー */
+  --color-accent-50: #fefce8;
+  --color-accent-100: #fef9c3;
+  --color-accent-200: #fef08a;
+  --color-accent-300: #fde047;
+  --color-accent-400: #facc15;
+  --color-accent-500: #eab308;
+  --color-accent-600: #ca8a04;
+  --color-accent-700: #a16207;
+  --color-accent-800: #854d0e;
+  --color-accent-900: #713f12;
+
+  /* アニメーション */
+  --animate-flip: flip 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+  --animate-bounce-gentle: bounce-gentle 2s ease-in-out infinite;
+
+  /* Backdrop Blur */
+  --backdrop-blur-xs: 2px;
+}
+
+/* キーフレーム */
+@keyframes flip {
+  0% { transform: perspective(400px) rotateY(0deg); }
+  40% { transform: perspective(400px) rotateY(-90deg); }
+  60% { transform: perspective(400px) rotateY(-90deg); }
+  100% { transform: perspective(400px) rotateY(0deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+  100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8); }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* ベーススタイル */
 @layer base {
   body {
     background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
@@ -10,6 +83,7 @@
   }
 }
 
+/* コンポーネントスタイル */
 @layer components {
   .card-container {
     perspective: 1000px;
