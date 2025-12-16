@@ -4,12 +4,12 @@ import { googleTrendContents } from "interfaces/sheet";
 const getSheets = () => {
   const googleapis = new GoogleApis();
   const scopes = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
-  const jwt = new googleapis.auth.JWT(
-    process.env.GCP_SERVICEACCOUNT_EMAIL,
-    undefined,
-    (process.env.GCP_SERVICEACCOUNT_PRIVATE_KEY || "").replace(/\\n/g, "\n"),
-    scopes
-  );
+  // 最新のgoogleapisではオブジェクト形式でJWTを初期化する
+  const jwt = new googleapis.auth.JWT({
+    email: process.env.GCP_SERVICEACCOUNT_EMAIL,
+    key: (process.env.GCP_SERVICEACCOUNT_PRIVATE_KEY || "").replace(/\\n/g, "\n"),
+    scopes: scopes
+  });
   return google.sheets({ version: "v4", auth: jwt });
 };
 
