@@ -4,7 +4,6 @@ import { googleTrendContents } from "interfaces/sheet";
 const getSheets = () => {
   const googleapis = new GoogleApis();
   const scopes = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
-  // 最新のgoogleapisではオブジェクト形式でJWTを初期化する
   const jwt = new googleapis.auth.JWT({
     email: process.env.GCP_SERVICEACCOUNT_EMAIL,
     key: (process.env.GCP_SERVICEACCOUNT_PRIVATE_KEY || "").replace(/\\n/g, "\n"),
