@@ -3,7 +3,7 @@ import { useGoogleTrendCard } from "components/hooks/card/googleTrendCard";
 import { InteractiveCard } from "components/ui/InteractiveCard";
 import { GoogleTrendContent } from "interfaces/sheet";
 import { TrendingUp, Newspaper, Lightbulb, ExternalLink } from "lucide-react";
-import { JSX, useEffect, useCallback } from "react";
+import { JSX } from "react";
 
 export const GoogleTrendCard = ({
   googleTrendContents,
@@ -11,16 +11,6 @@ export const GoogleTrendCard = ({
   googleTrendContents: GoogleTrendContent[];
 }): JSX.Element => {
   const { item, handleClick } = useGoogleTrendCard(googleTrendContents);
-
-  // 初回レンダリング時にアイテムを取得
-  useEffect(() => {
-    handleClick();
-  }, [handleClick]);
-
-  // カードクリック時の処理（memoizeして安定した参照にする）
-  const handleCardFlip = useCallback(() => {
-    handleClick();
-  }, [handleClick]);
 
   return (
     <div className="w-full flex-1 flex flex-col items-center pt-4">
@@ -33,7 +23,7 @@ export const GoogleTrendCard = ({
 
         <div className="mb-8">
           <InteractiveCard
-            onFlip={handleCardFlip}
+            onFlip={handleClick}
             className="mb-6"
           >
             <div className="text-center p-4 h-full flex flex-col justify-center">
