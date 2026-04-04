@@ -1,3 +1,4 @@
+"use client";
 import { useGoogleTrendCard } from "components/hooks/card/googleTrendCard";
 import { InteractiveCard } from "components/ui/InteractiveCard";
 import { GoogleTrendContent } from "interfaces/sheet";
@@ -22,10 +23,7 @@ export const GoogleTrendCard = ({
   }, [handleClick]);
 
   return (
-    <div className="min-h-dvh relative overflow-hidden">
-      <div className="floating-elements" />
-      
-      <section className="relative z-10 flex h-full flex-col items-center justify-center px-4 py-8">
+    <div className="w-full flex-1 flex flex-col items-center pt-4">
         <h1 
           className="mb-8 text-4xl md:text-5xl font-bold text-gray-800 text-center font-zenMaru text-balance flex items-center justify-center gap-3"
         >
@@ -91,7 +89,6 @@ export const GoogleTrendCard = ({
             </p>
           </div>
         </div>
-      </section>
     </div>
   );
 };

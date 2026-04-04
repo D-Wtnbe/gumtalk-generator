@@ -1,5 +1,7 @@
-import { motion } from 'framer-motion';
+"use client";
+import { motion } from 'motion/react';
 import { ReactNode } from 'react';
+import { cn } from 'lib/utils';
 
 interface ModernButtonProps {
   children: ReactNode;
@@ -19,9 +21,9 @@ export const ModernButton = ({
   disabled = false
 }: ModernButtonProps) => {
   const variants = {
-    primary: 'bg-gradient-to-br from-primary-500 to-primary-700 hover:from-primary-400 hover:to-primary-600',
-    secondary: 'bg-gradient-to-br from-secondary-500 to-secondary-700 hover:from-secondary-400 hover:to-secondary-600',
-    accent: 'bg-gradient-to-br from-accent-500 to-accent-700 hover:from-accent-400 hover:to-accent-600'
+    primary: 'bg-primary-600 hover:bg-primary-500',
+    secondary: 'bg-secondary-600 hover:bg-secondary-500',
+    accent: 'bg-accent-600 hover:bg-accent-500'
   };
 
   const sizes = {
@@ -32,25 +34,17 @@ export const ModernButton = ({
 
   return (
     <motion.button
-      className={`
-        ${variants[variant]}
-        ${sizes[size]}
-        ${className}
-        font-zenMaru font-semibold text-white rounded-xl
-        shadow-lg backdrop-blur-sm border border-white/20
-        transition-all duration-300 ease-out
-        ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
-      `}
+      className={cn(
+        variants[variant],
+        sizes[size],
+        "font-zenMaru font-semibold text-white rounded-xl shadow-md transition-colors",
+        disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer',
+        className
+      )}
       onClick={onClick}
       disabled={disabled}
-      whileHover={disabled ? {} : { 
-        scale: 1.02,
-        boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)"
-      }}
+      whileHover={disabled ? {} : { scale: 1.02 }}
       whileTap={disabled ? {} : { scale: 0.98 }}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
     >
       {children}
     </motion.button>

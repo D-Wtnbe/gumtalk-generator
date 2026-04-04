@@ -41,29 +41,9 @@
   --color-accent-700: #a16207;
   --color-accent-800: #854d0e;
   --color-accent-900: #713f12;
-
-  /* アニメーション */
-  --animate-flip: flip 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
-  --animate-float: float 3s ease-in-out infinite;
-  --animate-glow: glow 2s ease-in-out infinite alternate;
-  --animate-bounce-gentle: bounce-gentle 2s ease-in-out infinite;
-
-  /* Backdrop Blur */
-  --backdrop-blur-xs: 2px;
 }
 
-/* キーフレーム */
-@keyframes flip {
-  0% { transform: perspective(400px) rotateY(0deg); }
-  40% { transform: perspective(400px) rotateY(-90deg); }
-  60% { transform: perspective(400px) rotateY(-90deg); }
-  100% { transform: perspective(400px) rotateY(0deg); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
+/* アニメーション */
 
 @keyframes glow {
   0% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
@@ -78,8 +58,8 @@
 /* ベーススタイル */
 @layer base {
   body {
-    background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
-    min-height: 100vh;
+    background-color: #f8fafc; /* Tailwind slate-50 */
+    min-height: 100dvh;
   }
 }
 
@@ -124,69 +104,29 @@
   }
   
   .card-front {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    box-shadow: 0 4px 20px 0 rgba(59, 130, 246, 0.1);
+    background-color: white;
+    border: 1px solid #e2e8f0; /* Tailwind slate-200 */
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     overflow: hidden;
     word-wrap: break-word;
     hyphens: auto;
     transform-origin: center center;
   }
   
-  .glassmorphism {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-  }
-  
   .btn-modern {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-color: #3b82f6; /* Tailwind blue-500 */
     border: none;
-    border-radius: 12px;
+    border-radius: 0.75rem;
     color: white;
     font-weight: 600;
     padding: 12px 24px;
-    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.3);
+    transition: all 0.2s;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
   
   .btn-modern:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px 0 rgba(116, 79, 168, 0.4);
-  }
-  
-  .floating-elements {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-  }
-  
-  .floating-elements::before,
-  .floating-elements::after {
-    content: '';
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  .floating-elements::before {
-    top: 10%;
-    left: 10%;
-    animation-delay: -3s;
-  }
-  
-  .floating-elements::after {
-    bottom: 10%;
-    right: 10%;
-    width: 150px;
-    height: 150px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   }
   
   .text-responsive {

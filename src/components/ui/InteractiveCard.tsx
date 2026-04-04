@@ -1,3 +1,4 @@
+"use client";
 import { motion } from 'motion/react';
 import { cn } from 'lib/utils';
 
@@ -17,8 +18,9 @@ export const InteractiveCard = ({
   };
 
   return (
-    <motion.div
-      className={cn("card-container cursor-pointer", className)}
+    <motion.button
+      type="button"
+      className={cn("card-container cursor-pointer block appearance-none bg-transparent border-none p-0 text-left w-full", className)}
       onClick={handleFlip}
       whileHover={{ scale: 1.01 }}
       whileTap={{ scale: 0.99 }}
@@ -30,6 +32,6 @@ export const InteractiveCard = ({
           {children}
         </div>
       </div>
-    </motion.div>
+    </motion.button>
   );
 };
