@@ -11,7 +11,7 @@ type TrendProps = {
 export default function Trend(props: TrendProps) {
   const { googleTrendContents } = props;
   return (
-    <div className="min-h-screen">
+    <div className="min-h-dvh">
       <Header title="Googleトレンド" />
       <main>
         <GoogleTrendCard googleTrendContents={googleTrendContents} />

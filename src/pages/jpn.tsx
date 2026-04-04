@@ -10,7 +10,7 @@ export default function Jpn({
   japaneseNounContents: JapaneseNounContent[];
 }) {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-dvh">
       <Header title="日本語名詞" />
       <main>
         <JapaneseNounCard japaneseNounContents={japaneseNounContents} />

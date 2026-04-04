@@ -10,7 +10,7 @@ export default function Phrase({
   japanesePhraseContents: JapanesePhraseContent[];
 }) {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-dvh">
       <Header title="フレーズ" />
       <main>
         <JapanesePhraseCard japanesePhraseContents={japanesePhraseContents} />
