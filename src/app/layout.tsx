@@ -15,18 +15,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja">
-      <body className="bg-slate-50 min-h-dvh flex flex-col">
+      <body className="flex min-h-dvh flex-col bg-slate-50">
         <Header />
-        <div className="flex-1 flex flex-col">
-          {children}
-        </div>
+        <div className="flex flex-1 flex-col">{children}</div>
         <Analytics />
         <SpeedInsights />
       </body>

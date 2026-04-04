@@ -44,7 +44,7 @@ export const getJapanesePhraseContents = async (): Promise<JapanesePhraseContent
       spreadsheetId: process.env.SHEET_ID,
       range: SHEET_RANGE_PHRASE,
     });
-    
+
     const rows = response.data.values;
     if (!rows || rows.length === 0) {
       return [];

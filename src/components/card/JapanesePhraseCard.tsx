@@ -13,46 +13,41 @@ export const JapanesePhraseCard = ({
   const { item, handleClick } = useJapanesePhraseCard(japanesePhraseContents);
 
   return (
-    <div className="w-full flex-1 flex flex-col items-center pt-4">
-        <h1 
-          className="mb-8 text-4xl md:text-5xl font-bold text-gray-800 text-center font-zenMaru text-balance flex items-center justify-center gap-3"
-        >
-          <MessageCircle className="w-8 h-8 md:w-10 md:h-10 text-primary-500" />
-          会話フレーズのお題
-        </h1>
+    <div className="flex w-full flex-1 flex-col items-center pt-4">
+      <h1 className="font-zenMaru mb-8 flex items-center justify-center gap-3 text-center text-4xl font-bold text-balance text-gray-800 md:text-5xl">
+        <MessageCircle className="h-8 w-8 text-primary-500 md:h-10 md:w-10" />
+        会話フレーズのお題
+      </h1>
 
-        <div className="mb-8">
-          <InteractiveCard
-            onFlip={handleClick}
-            className="mb-6"
-          >
-            <div className="text-center p-4 h-full flex flex-col justify-center">
-              <div
-                key={item?.content}
-                className="space-y-2 flex flex-col items-center justify-center h-full"
-              >
-                <div className="flex-1 flex flex-col justify-center">
-                  <p className="text-responsive font-bold font-zenMaru break-words text-center px-4 leading-tight text-gray-800">
-                    {item?.content}
-                  </p>
-                </div>
+      <div className="mb-8">
+        <InteractiveCard onFlip={handleClick} className="mb-6">
+          <div className="flex h-full flex-col justify-center p-4 text-center">
+            <div
+              key={item?.content}
+              className="flex h-full flex-col items-center justify-center space-y-2"
+            >
+              <div className="flex flex-1 flex-col justify-center">
+                <p className="text-responsive font-zenMaru px-4 text-center leading-tight font-bold break-words text-gray-800">
+                  {item?.content}
+                </p>
               </div>
             </div>
-          </InteractiveCard>
-        </div>
-
-        <div className="text-center mt-6">
-          <div className="bg-white shadow-md rounded-xl p-6 max-w-md mx-auto">
-            <h3 className="text-gray-800 font-zenMaru font-semibold mb-3 flex items-center justify-center gap-2">
-              <Lightbulb className="w-5 h-5 text-amber-500" /> 使い方
-            </h3>
-            <p className="text-gray-600 text-sm font-zenMaru text-pretty">
-              カードをクリックして新しいフレーズを表示
-              <br />
-              フレーズをきっかけに会話を盛り上げよう!
-            </p>
           </div>
+        </InteractiveCard>
+      </div>
+
+      <div className="mt-6 text-center">
+        <div className="mx-auto max-w-md rounded-xl bg-white p-6 shadow-md">
+          <h3 className="font-zenMaru mb-3 flex items-center justify-center gap-2 font-semibold text-gray-800">
+            <Lightbulb className="h-5 w-5 text-amber-500" /> 使い方
+          </h3>
+          <p className="font-zenMaru text-sm text-pretty text-gray-600">
+            カードをクリックして新しいフレーズを表示
+            <br />
+            フレーズをきっかけに会話を盛り上げよう!
+          </p>
         </div>
+      </div>
     </div>
   );
 };

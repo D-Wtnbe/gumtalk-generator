@@ -44,7 +44,7 @@ export const getJapaneseNounContents = async (): Promise<JapaneseNounContent[]> 
       spreadsheetId: process.env.SHEET_ID,
       range: SHEET_RANGE_NOUN,
     });
-    
+
     const rows = response.data.values;
     if (!rows || rows.length === 0) {
       return [];
