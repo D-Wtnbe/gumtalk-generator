@@ -1,10 +1,10 @@
-import { googleTrendContents } from "interfaces/sheet";
+import { GoogleTrendContent } from "interfaces/sheet";
 import { useState, useEffect, useCallback } from "react";
 
 export const useGoogleTrendCard = (
-  googleTrendContents: googleTrendContents[]
+  googleTrendContents: GoogleTrendContent[]
 ) => {
-  const [item, setItem] = useState<googleTrendContents>();
+  const [item, setItem] = useState<GoogleTrendContent>();
 
   // ランダムなアイテムを取得する関数
   const getRandomItem = useCallback(() => {

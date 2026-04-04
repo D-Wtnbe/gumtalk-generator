@@ -2,10 +2,10 @@ import { GoogleTrendCard } from "components/card/GoogleTrendCard";
 import { Header } from "components/header/header";
 import { getGoogleTrendContents } from "data/remote/googleTrendApi";
 import { GetServerSideProps } from "next";
-import { googleTrendContents } from "interfaces/sheet";
+import { GoogleTrendContent } from "interfaces/sheet";
 
 type TrendProps = {
-  googleTrendContents: googleTrendContents[];
+  googleTrendContents: GoogleTrendContent[];
 };
 
 export default function Trend(props: TrendProps) {

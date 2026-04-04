@@ -1,10 +1,10 @@
-import { japaneseNounContents } from "interfaces/sheet";
+import { JapaneseNounContent } from "interfaces/sheet";
 import { useState, useEffect, useCallback } from "react";
 
 export const useJapaneseNounCard = (
-  japaneseNounContents: japaneseNounContents[]
+  japaneseNounContents: JapaneseNounContent[]
 ) => {
-  const [item, setItem] = useState<japaneseNounContents>();
+  const [item, setItem] = useState<JapaneseNounContent>();
 
   // ランダムなアイテムを取得する関数
   const getRandomItem = useCallback(() => {

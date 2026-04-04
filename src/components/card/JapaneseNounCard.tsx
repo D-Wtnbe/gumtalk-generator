@@ -1,13 +1,13 @@
 import { useJapaneseNounCard } from "components/hooks/card/japaneseNounCard";
 import { InteractiveCard } from "components/ui/InteractiveCard";
-import { japaneseNounContents } from "interfaces/sheet";
+import { JapaneseNounContent } from "interfaces/sheet";
 import { motion } from "framer-motion";
 import { JSX, useEffect, useCallback } from "react";
 
 export const JapaneseNounCard = ({
   japaneseNounContents,
 }: {
-  japaneseNounContents: japaneseNounContents[];
+  japaneseNounContents: JapaneseNounContent[];
 }): JSX.Element => {
   const { item, handleClick } = useJapaneseNounCard(japaneseNounContents);
 

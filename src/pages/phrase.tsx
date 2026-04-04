@@ -2,12 +2,12 @@ import { JapanesePhraseCard } from "components/card/JapanesePhraseCard";
 import { Header } from "components/header/header";
 import { getJapanesePhraseContents } from "data/remote/japanesePhraseApi";
 import { GetServerSideProps } from "next";
-import { japanesePhraseContents } from "interfaces/sheet";
+import { JapanesePhraseContent } from "interfaces/sheet";
 
 export default function Phrase({
   japanesePhraseContents,
 }: {
-  japanesePhraseContents: japanesePhraseContents[];
+  japanesePhraseContents: JapanesePhraseContent[];
 }) {
   return (
     <div className="min-h-screen">

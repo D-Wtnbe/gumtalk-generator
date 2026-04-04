@@ -1,13 +1,13 @@
 import { useGoogleTrendCard } from "components/hooks/card/googleTrendCard";
 import { InteractiveCard } from "components/ui/InteractiveCard";
-import { googleTrendContents } from "interfaces/sheet";
+import { GoogleTrendContent } from "interfaces/sheet";
 import { motion } from "framer-motion";
 import { JSX, useEffect, useCallback } from "react";
 
 export const GoogleTrendCard = ({
   googleTrendContents,
 }: {
-  googleTrendContents: googleTrendContents[];
+  googleTrendContents: GoogleTrendContent[];
 }): JSX.Element => {
   const { item, handleClick } = useGoogleTrendCard(googleTrendContents);
 

@@ -2,12 +2,12 @@ import { JapaneseNounCard } from "components/card/JapaneseNounCard";
 import { Header } from "components/header/header";
 import { getJapaneseNounContents } from "data/remote/japaneseNounApi";
 import { GetServerSideProps } from "next";
-import { japaneseNounContents } from "interfaces/sheet";
+import { JapaneseNounContent } from "interfaces/sheet";
 
 export default function Jpn({
   japaneseNounContents,
 }: {
-  japaneseNounContents: japaneseNounContents[];
+  japaneseNounContents: JapaneseNounContent[];
 }) {
   return (
     <div className="min-h-screen">
