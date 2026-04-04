@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
+import { cn } from 'lib/utils';
 
 interface InteractiveCardProps {
   children: React.ReactNode;
@@ -17,7 +18,7 @@ export const InteractiveCard = ({
 
   return (
     <motion.div
-      className={`card-container cursor-pointer ${className}`}
+      className={cn("card-container cursor-pointer", className)}
       onClick={handleFlip}
       whileHover={{ scale: 1.01 }}
       whileTap={{ scale: 0.99 }}
