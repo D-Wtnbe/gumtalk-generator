@@ -1,118 +1,79 @@
+"use client";
 import { useGoogleTrendCard } from "components/hooks/card/googleTrendCard";
 import { InteractiveCard } from "components/ui/InteractiveCard";
-import { googleTrendContents } from "interfaces/sheet";
-import { motion } from "framer-motion";
-import { JSX, useEffect, useCallback } from "react";
+import { GoogleTrendContent } from "interfaces/sheet";
+import { TrendingUp, Newspaper, Lightbulb, ExternalLink } from "lucide-react";
+import { JSX } from "react";
 
 export const GoogleTrendCard = ({
   googleTrendContents,
 }: {
-  googleTrendContents: googleTrendContents[];
+  googleTrendContents: GoogleTrendContent[];
 }): JSX.Element => {
   const { item, handleClick } = useGoogleTrendCard(googleTrendContents);
 
-  // 初回レンダリング時にアイテムを取得
-  useEffect(() => {
-    handleClick();
-  }, [handleClick]);
-
-  // カードクリック時の処理（memoizeして安定した参照にする）
-  const handleCardFlip = useCallback(() => {
-    handleClick();
-  }, [handleClick]);
-
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      <div className="floating-elements" />
-      
-      <section className="relative z-10 flex h-full flex-col items-center justify-center px-4 py-8">
-        <motion.h1 
-          className="mb-8 text-4xl md:text-5xl font-bold text-gray-800 text-center font-zenMaru"
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <span className="text-3xl mr-3">📈</span>
-          Google検索トレンドのお題
-        </motion.h1>
+    <div className="flex w-full flex-1 flex-col items-center pt-4">
+      <h1 className="font-zenMaru mb-8 flex items-center justify-center gap-3 text-center text-4xl font-bold text-balance text-gray-800 md:text-5xl">
+        <TrendingUp className="h-8 w-8 text-primary-500 md:h-10 md:w-10" />
+        Google検索トレンドのお題
+      </h1>
 
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-        >
-          <InteractiveCard
-            onFlip={handleCardFlip}
-            className="mb-6"
-          >
-            <div className="text-center p-4 h-full flex flex-col justify-center">
-              <motion.div
-                key={item?.content}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                className="space-y-2 flex flex-col items-center justify-center h-full"
-              >
-                <div className="bg-gradient-to-r from-secondary-500 to-accent-500 bg-clip-text text-transparent flex-1 flex flex-col justify-center">
-                  <p className="text-responsive-large font-bold font-zenMaru break-words text-center px-2 leading-tight">
-                    {item?.content}
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-          </InteractiveCard>
-        </motion.div>
-
-        {/* ニュースリンクセクション */}
-        {item?.newsTitle && item?.newsLink && (
-          <motion.div
-            className="mb-6 w-full max-w-md"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-          >
-            <div className="glassmorphism rounded-xl p-6">
-              <h3 className="text-gray-800 font-zenMaru font-semibold mb-3 flex items-center gap-2">
-                <span>📰</span>
-                関連ニュース
-              </h3>
-              <a
-                href={item.newsLink}
-                target="_blank"
-                rel="noreferrer"
-                className="block bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-all duration-300 group"
-              >
-                <p className="text-gray-600 font-zenMaru text-sm leading-relaxed group-hover:text-gray-800">
-                  {item.newsTitle}
+      <div className="mb-8">
+        <InteractiveCard onFlip={handleClick} className="mb-6">
+          <div className="flex h-full flex-col justify-center p-4 text-center">
+            <div
+              key={item?.content}
+              className="flex h-full flex-col items-center justify-center space-y-2"
+            >
+              <div className="flex flex-1 flex-col justify-center">
+                <p className="text-responsive-large font-zenMaru px-2 text-center leading-tight font-bold break-words text-gray-800">
+                  {item?.content}
                 </p>
-                <div className="flex items-center gap-2 mt-2 text-gray-500 text-xs">
-                  <span>🔗</span>
-                  <span>クリックで詳細を見る</span>
-                </div>
-              </a>
+              </div>
             </div>
-          </motion.div>
-        )}
-
-        <motion.div
-          className="text-center mt-6"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-        >
-          <div className="glassmorphism rounded-xl p-6 max-w-md mx-auto">
-            <h3 className="text-gray-800 font-zenMaru font-semibold mb-3">
-              💡 使い方
-            </h3>
-            <p className="text-gray-600 text-sm font-zenMaru">
-              カードをクリックして新しいトレンドを表示
-              <br />
-              話題のトピックで会話を盛り上げよう!
-            </p>
           </div>
-        </motion.div>
-      </section>
+        </InteractiveCard>
+      </div>
+
+      {/* ニュースリンクセクション */}
+      {item?.newsTitle && item?.newsLink && (
+        <div className="mb-6 w-full max-w-md">
+          <div className="rounded-xl bg-white p-6 shadow-md">
+            <h3 className="font-zenMaru mb-3 flex items-center gap-2 font-semibold text-gray-800">
+              <Newspaper className="h-5 w-5 text-blue-500" />
+              関連ニュース
+            </h3>
+            <a
+              href={item.newsLink}
+              target="_blank"
+              rel="noreferrer"
+              className="group block rounded-lg bg-gray-50 p-4 transition-colors duration-300 hover:bg-gray-100"
+            >
+              <p className="font-zenMaru text-sm leading-relaxed text-pretty text-gray-600 group-hover:text-gray-800">
+                {item.newsTitle}
+              </p>
+              <div className="mt-2 flex items-center gap-2 text-xs text-gray-500">
+                <ExternalLink className="h-3 w-3" />
+                <span>クリックで詳細を見る</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      )}
+
+      <div className="mt-6 text-center">
+        <div className="mx-auto max-w-md rounded-xl bg-white p-6 shadow-md">
+          <h3 className="font-zenMaru mb-3 flex items-center justify-center gap-2 font-semibold text-gray-800">
+            <Lightbulb className="h-5 w-5 text-amber-500" /> 使い方
+          </h3>
+          <p className="font-zenMaru text-sm text-pretty text-gray-600">
+            カードをクリックして新しいトレンドを表示
+            <br />
+            話題のトピックで会話を盛り上げよう!
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
