@@ -44,7 +44,7 @@ importers:
         version: 12.29.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       google-spreadsheet:
         specifier: ^5.0.0
-        version: 5.0.2(google-auth-library@9.15.1)
+        version: 5.2.0(google-auth-library@9.15.1)
       googleapis:
         specifier: ^148.0.0
         version: 148.0.0
@@ -993,8 +993,8 @@ packages:
     resolution: {integrity: sha512-w+5mJ3GuFL+NjVtJlvydShqE1eN3h3PbI7/5LAsYJP/2qtuMXjfL2LpHSRqo4b4eSF5K/DH1JXKUAHSB2UW50g==}
     engines: {node: '>= 0.4'}
 
-  es-toolkit@1.43.0:
-    resolution: {integrity: sha512-SKCT8AsWvYzBBuUqMk4NPwFlSdqLpJwmy6AP322ERn8W2YLIB6JBXnwMI2Qsh2gfphT3q7EKAxKb23cvFHFwKA==}
+  es-toolkit@1.45.1:
+    resolution: {integrity: sha512-/jhoOj/Fx+A+IIyDNOvO3TItGmlMKhtX8ISAHKE90c4b/k1tqaqEZ+uUqfpU8DMnW5cgNJv606zS55jGvza0Xw==}
 
   escalade@3.2.0:
     resolution: {integrity: sha512-WUj2qlxaQtO4g6Pq5c29GTcWGDyd8itL8zTlipgECz3JesAiiOKotd8JU6otB3PACgG6xkJUyVhboMS+bje/jA==}
@@ -1259,8 +1259,8 @@ packages:
     resolution: {integrity: sha512-NEgUnEcBiP5HrPzufUkBzJOD/Sxsco3rLNo1F1TNf7ieU8ryUzBhqba8r756CjLX7rn3fHl6iLEwPYuqpoKgQQ==}
     engines: {node: '>=14'}
 
-  google-spreadsheet@5.0.2:
-    resolution: {integrity: sha512-8ugGYGsy6BLl6d4z2zwllEv8hFB2IVcCNAUYT/seo4DU7Pk6m79qv+qRxE2cE8bxbf4S13T5fzrjcPhbk2ogsw==}
+  google-spreadsheet@5.2.0:
+    resolution: {integrity: sha512-sqQN+o0fxR5tfjFYKOuqgNFYKI/3uYT1TjLVUnN5SRckcR931szYjmvRvgN1QJ8VE2R6TlDuiFZ7LmfXvEKTyA==}
     peerDependencies:
       google-auth-library: '>=8.8.0'
     peerDependenciesMeta:
@@ -1494,8 +1494,8 @@ packages:
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
 
-  ky@1.14.1:
-    resolution: {integrity: sha512-hYje4L9JCmpEQBtudo+v52X5X8tgWXUYyPcxKSuxQNboqufecl9VMWjGiucAFH060AwPXHZuH+WB2rrqfkmafw==}
+  ky@1.14.3:
+    resolution: {integrity: sha512-9zy9lkjac+TR1c2tG+mkNSVlyOpInnWdSMiue4F+kq8TwJSgv6o8jhLRg8Ho6SnZ9wOYUq/yozts9qQCfk7bIw==}
     engines: {node: '>=18'}
 
   language-subtag-registry@0.3.23:
@@ -2993,7 +2993,7 @@ snapshots:
       is-date-object: 1.1.0
       is-symbol: 1.1.1
 
-  es-toolkit@1.43.0: {}
+  es-toolkit@1.45.1: {}
 
   escalade@3.2.0: {}
 
@@ -3360,10 +3360,10 @@ snapshots:
 
   google-logging-utils@0.0.2: {}
 
-  google-spreadsheet@5.0.2(google-auth-library@9.15.1):
+  google-spreadsheet@5.2.0(google-auth-library@9.15.1):
     dependencies:
-      es-toolkit: 1.43.0
-      ky: 1.14.1
+      es-toolkit: 1.45.1
+      ky: 1.14.3
     optionalDependencies:
       google-auth-library: 9.15.1
 
@@ -3616,7 +3616,7 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
-  ky@1.14.1: {}
+  ky@1.14.3: {}
 
   language-subtag-registry@0.3.23: {}
 
