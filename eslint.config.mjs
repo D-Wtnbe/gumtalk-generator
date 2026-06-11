@@ -1,11 +1,52 @@
-import nextConfig from "eslint-config-next";
+import eslintJs from "@eslint/js";
+import nextPlugin from "@next/eslint-plugin-next";
+import eslintReact from "@eslint-react/eslint-plugin";
+import reactHooksPlugin from "eslint-plugin-react-hooks";
+import tseslint from "typescript-eslint";
 
 /** @type {import("eslint").Linter.Config[]} */
 const config = [
-  // Next.js 推奨ルールセット（flat config 形式 - 配列をスプレッド展開）
-  ...(Array.isArray(nextConfig) ? nextConfig : [nextConfig]),
+  // ESLint 推奨ルール
+  eslintJs.configs.recommended,
 
-  // TypeScript / React カスタムルール
+  // typescript-eslint 推奨ルール
+  ...tseslint.configs.recommended,
+
+  // @eslint-react: React 19 + TypeScript 向け推奨プリセット（eslint-plugin-react の後継）
+  {
+    files: ["**/*.{ts,tsx}"],
+    ...eslintReact.configs["recommended-type-checked"],
+    languageOptions: {
+      ...eslintReact.configs["recommended-type-checked"].languageOptions,
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
+
+  // React Hooks ルール
+  {
+    plugins: {
+      "react-hooks": reactHooksPlugin,
+    },
+    rules: {
+      ...reactHooksPlugin.configs.recommended.rules,
+    },
+  },
+
+  // Next.js 専用ルール（eslint-config-next の代わりに直接 @next/eslint-plugin-next を使用）
+  {
+    plugins: {
+      "@next/next": nextPlugin,
+    },
+    rules: {
+      ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs["core-web-vitals"].rules,
+    },
+  },
+
+  // TypeScript / カスタムルール
   {
     rules: {
       // 未使用変数を警告（アンダースコア始まりは除外）
@@ -16,8 +57,6 @@ const config = [
       ],
       // console.log を警告（console.error/warn は許可）
       "no-console": ["warn", { allow: ["warn", "error"] }],
-      // React 17+ JSX Transform のため不要
-      "react/react-in-jsx-scope": "off",
     },
   },
 

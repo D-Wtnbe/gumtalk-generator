@@ -2,8 +2,9 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@11.1.2",
   "engines": {
-    "node": ">=24.0.0"
+    "node": ">=22.0.0"
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
@@ -17,39 +18,37 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@tailwindcss/postcss": "^4.0.0",
-    "@types/node": "24.12.2",
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/node": "25.9.2",
     "@vercel/analytics": "^2.0.0",
     "@vercel/speed-insights": "^2.0.0",
-    "autoprefixer": "^10.4.21",
+    "autoprefixer": "^10.5.0",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.23.12",
-    "google-spreadsheet": "^5.0.0",
-    "googleapis": "^171.4.0",
-    "lucide-react": "^1.7.0",
-    "motion": "^12.38.0",
-    "next": "^16.2.2",
-    "postcss": "^8.4.38",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "tailwind-merge": "^3.5.0",
-    "tailwindcss": "^4.0.0",
-    "zod": "^4.0.0"
+    "google-spreadsheet": "^5.3.0",
+    "googleapis": "^173.0.0",
+    "lucide-react": "^1.17.0",
+    "motion": "^12.40.0",
+    "next": "^16.2.9",
+    "postcss": "^8.5.15",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@eslint-react/eslint-plugin": "^5.8.17",
     "@eslint/eslintrc": "^3.3.5",
-    "@types/react": "19.2.14",
+    "@eslint/js": "^10.0.1",
+    "@next/eslint-plugin-next": "^16.2.9",
+    "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
-    "eslint": "9.39.4",
-    "eslint-config-next": "16.2.2",
-    "prettier": "^3.8.1",
-    "prettier-plugin-tailwindcss": "^0.7.2",
-    "typescript": "6.0.2"
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "19.2.14",
-      "@types/react-dom": "19.2.3"
-    }
+    "eslint": "10.4.1",
+    "eslint-config-next": "16.2.9",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "prettier": "^3.8.4",
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "^8.61.0"
   }
 }
