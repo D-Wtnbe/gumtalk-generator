@@ -4,9 +4,6 @@
 	"service": "app",
 	"workspaceFolder": "/workspace",
 	"features": {
-		"ghcr.io/devcontainers-contrib/features/pnpm:2": {
-			"version": "8.9.2"
-		},
 		"ghcr.io/devcontainers/features/node:1": {
 			"version": "24.15.0"
 		}
