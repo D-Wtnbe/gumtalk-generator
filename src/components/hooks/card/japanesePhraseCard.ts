@@ -1,25 +1,27 @@
 import { JapanesePhraseContent } from "interfaces/sheet";
 import { useState, useCallback } from "react";
 
-export const useJapanesePhraseCard = (japanesePhraseContents: JapanesePhraseContent[]) => {
-  // ランダムなアイテムを取得する純粋関数
-  const getRandomItem = useCallback((): JapanesePhraseContent | undefined => {
-    if (japanesePhraseContents.length === 0) return undefined;
-    return japanesePhraseContents[Math.floor(Math.random() * japanesePhraseContents.length)];
-  }, [japanesePhraseContents]);
+// ランダムなアイテムを取得するユーティリティ関数
+function pickRandom<T>(arr: T[]): T | undefined {
+  if (arr.length === 0) return undefined;
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
-  // 初期値を遅延初期化子で設定（useEffect 内の setState を回避）
-  const [item, setItem] = useState<JapanesePhraseContent | undefined>(
-    () => japanesePhraseContents[Math.floor(Math.random() * japanesePhraseContents.length)]
+export const useJapanesePhraseCard = (japanesePhraseContents: JapanesePhraseContent[]) => {
+  // SSR/CSR のハイドレーションミスマッチを防ぐため、
+  // サーバー側（typeof window === "undefined"）は undefined を返し、
+  // クライアント初回マウント時のみランダム選択する。
+  const [item, setItem] = useState<JapanesePhraseContent | undefined>(() =>
+    typeof window === "undefined" ? undefined : pickRandom(japanesePhraseContents)
   );
 
   // カードクリック時に新しいランダムアイテムを取得
   const handleClick = useCallback(() => {
-    const randomItem = getRandomItem();
+    const randomItem = pickRandom(japanesePhraseContents);
     if (randomItem) {
       setItem(randomItem);
     }
-  }, [getRandomItem]);
+  }, [japanesePhraseContents]);
 
   return { item, handleClick };
 };

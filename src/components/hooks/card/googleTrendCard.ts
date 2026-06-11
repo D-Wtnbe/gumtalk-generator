@@ -1,25 +1,27 @@
 import { GoogleTrendContent } from "interfaces/sheet";
 import { useState, useCallback } from "react";
 
-export const useGoogleTrendCard = (googleTrendContents: GoogleTrendContent[]) => {
-  // ランダムなアイテムを取得する純粋関数
-  const getRandomItem = useCallback((): GoogleTrendContent | undefined => {
-    if (googleTrendContents.length === 0) return undefined;
-    return googleTrendContents[Math.floor(Math.random() * googleTrendContents.length)];
-  }, [googleTrendContents]);
+// ランダムなアイテムを取得するユーティリティ関数
+function pickRandom<T>(arr: T[]): T | undefined {
+  if (arr.length === 0) return undefined;
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
-  // 初期値を遅延初期化子で設定（useEffect 内の setState を回避）
-  const [item, setItem] = useState<GoogleTrendContent | undefined>(
-    () => googleTrendContents[Math.floor(Math.random() * googleTrendContents.length)]
+export const useGoogleTrendCard = (googleTrendContents: GoogleTrendContent[]) => {
+  // SSR/CSR のハイドレーションミスマッチを防ぐため、
+  // サーバー側（typeof window === "undefined"）は undefined を返し、
+  // クライアント初回マウント時のみランダム選択する。
+  const [item, setItem] = useState<GoogleTrendContent | undefined>(() =>
+    typeof window === "undefined" ? undefined : pickRandom(googleTrendContents)
   );
 
   // カードクリック時に新しいランダムアイテムを取得
   const handleClick = useCallback(() => {
-    const randomItem = getRandomItem();
+    const randomItem = pickRandom(googleTrendContents);
     if (randomItem) {
       setItem(randomItem);
     }
-  }, [getRandomItem]);
+  }, [googleTrendContents]);
 
   return { item, handleClick };
 };
