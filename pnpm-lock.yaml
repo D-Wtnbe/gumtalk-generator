@@ -70,8 +70,8 @@ importers:
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.8.1(jiti@2.7.0))
       '@next/eslint-plugin-next':
-        specifier: ^16.2.9
-        version: 16.2.9
+        specifier: ^16.3.0
+        version: 16.3.0(eslint@10.8.1(jiti@2.7.0))
       '@types/react':
         specifier: 19.2.17
         version: 19.2.17
@@ -487,6 +487,9 @@ packages:
 
   '@next/eslint-plugin-next@16.2.9':
     resolution: {integrity: sha512-UZi8+YT/MLgTC9nrrn2Xd4lBYv1B7lVmtWHfPcthAI5Tt/C1LuDe6DfmtCtJ+WQod3ksY4VrKSvk3oMVAnL7qw==}
+
+  '@next/eslint-plugin-next@16.3.0':
+    resolution: {integrity: sha512-OqgJ8PN0d04KcPhDX/PTY5tJUJZxlbrt7O7FBsm4XE0XW2JDrKnDXsc9uo9WUimJGPoo2j+JRGhyXApC//mvbw==}
 
   '@next/swc-darwin-arm64@16.2.9':
     resolution: {integrity: sha512-HkfxNYUCmcct0Xsqib5KxqMSHV4AHJq857BNRchyBDs4YS19aHzVfn1kDuBYKqLLQBjXgnkIsjV2Kd4d2wzYhw==}
@@ -3088,6 +3091,13 @@ snapshots:
   '@next/eslint-plugin-next@16.2.9':
     dependencies:
       fast-glob: 3.3.1
+
+  '@next/eslint-plugin-next@16.3.0(eslint@10.8.1(jiti@2.7.0))':
+    dependencies:
+      '@eslint-community/eslint-utils': 4.9.1(eslint@10.8.1(jiti@2.7.0))
+      fast-glob: 3.3.1
+    transitivePeerDependencies:
+      - eslint
 
   '@next/swc-darwin-arm64@16.2.9':
     optional: true
