@@ -1,25 +1,28 @@
 import { z } from "zod";
 
-export const googleTrendContentsSchema = z.object({
+export const GoogleTrendContentSchema = z.object({
   date: z.string(),
   content: z.string(),
-  newsTitle: z.string(),
-  newsLink: z.string().url().refine((value) => {
-    const protocol = new URL(value).protocol;
-    return protocol === "https:" || protocol === "http:";
-  }, "ニュースリンクはHTTP(S) URLである必要があります"),
+  newsTitle: z.string().nullable(),
+  newsLink: z
+    .string()
+    .url()
+    .refine((value) => ["http:", "https:"].includes(new URL(value).protocol), {
+      message: "ニュースリンクはHTTP(S) URLである必要があります",
+    })
+    .nullable(),
 });
 
-export type googleTrendContents = z.infer<typeof googleTrendContentsSchema>;
+export type GoogleTrendContent = z.infer<typeof GoogleTrendContentSchema>;
 
-export const japaneseNounContentsSchema = z.object({
+export const JapaneseNounContentSchema = z.object({
   content: z.string(),
 });
 
-export type japaneseNounContents = z.infer<typeof japaneseNounContentsSchema>;
+export type JapaneseNounContent = z.infer<typeof JapaneseNounContentSchema>;
 
-export const japanesePhraseContentsSchema = z.object({
+export const JapanesePhraseContentSchema = z.object({
   content: z.string(),
 });
 
-export type japanesePhraseContents = z.infer<typeof japanesePhraseContentsSchema>;
+export type JapanesePhraseContent = z.infer<typeof JapanesePhraseContentSchema>;

@@ -4,11 +4,8 @@
 	"service": "app",
 	"workspaceFolder": "/workspace",
 	"features": {
-		"ghcr.io/devcontainers-contrib/features/pnpm:2": {
-			"version": "8.9.2"
-		},
-		"ghcr.io/devcontainers/features/node:1": {
-			"version": "20.10.0"
+		"ghcr.io/devcontainers/features/node:2": {
+			"version": "24.17.0"
 		}
 	},
 	"forwardPorts": [3000],

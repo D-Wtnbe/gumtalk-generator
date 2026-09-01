@@ -1,4 +1,166 @@
-@import "~tailwindcss/base";
-@import "~tailwindcss/components";
-@import "~tailwindcss/utilities";
-@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap");
+@import "tailwindcss";
+
+/* Tailwind CSS v4 テーマ設定 */
+@theme {
+  /* フォント設定 */
+  --font-family-zen-maru: "Zen Maru Gothic", sans-serif;
+
+  /* プライマリカラー */
+  --color-primary-50: #fef2f2;
+  --color-primary-100: #fde6e6;
+  --color-primary-200: #fbd5d5;
+  --color-primary-300: #f8b4b4;
+  --color-primary-400: #f48888;
+  --color-primary-500: #ef4444;
+  --color-primary-600: #dc2626;
+  --color-primary-700: #b91c1c;
+  --color-primary-800: #991b1b;
+  --color-primary-900: #7f1d1d;
+
+  /* セカンダリカラー */
+  --color-secondary-50: #f0f9ff;
+  --color-secondary-100: #e0f2fe;
+  --color-secondary-200: #bae6fd;
+  --color-secondary-300: #7dd3fc;
+  --color-secondary-400: #38bdf8;
+  --color-secondary-500: #0ea5e9;
+  --color-secondary-600: #0284c7;
+  --color-secondary-700: #0369a1;
+  --color-secondary-800: #075985;
+  --color-secondary-900: #0c4a6e;
+
+  /* アクセントカラー */
+  --color-accent-50: #fefce8;
+  --color-accent-100: #fef9c3;
+  --color-accent-200: #fef08a;
+  --color-accent-300: #fde047;
+  --color-accent-400: #facc15;
+  --color-accent-500: #eab308;
+  --color-accent-600: #ca8a04;
+  --color-accent-700: #a16207;
+  --color-accent-800: #854d0e;
+  --color-accent-900: #713f12;
+}
+
+/* アニメーション */
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+  }
+}
+
+@keyframes bounce-gentle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* ベーススタイル */
+@layer base {
+  body {
+    background-color: #f8fafc; /* Tailwind slate-50 */
+    min-height: 100dvh;
+  }
+}
+
+/* コンポーネントスタイル */
+@layer components {
+  .card-container {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+
+  .card-container.pointer-events-none {
+    cursor: default;
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center center;
+  }
+
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
+
+  .card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 1rem;
+    transform-origin: center center;
+  }
+
+  .card-back {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform-origin: center center;
+  }
+
+  .card-front {
+    background-color: white;
+    border: 1px solid #e2e8f0; /* Tailwind slate-200 */
+    box-shadow:
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
+    overflow: hidden;
+    word-wrap: break-word;
+    hyphens: auto;
+    transform-origin: center center;
+  }
+
+  .btn-modern {
+    background-color: #3b82f6; /* Tailwind blue-500 */
+    border: none;
+    border-radius: 0.75rem;
+    color: white;
+    font-weight: 600;
+    padding: 12px 24px;
+    transition: all 0.2s;
+    box-shadow:
+      0 1px 3px 0 rgb(0 0 0 / 0.1),
+      0 1px 2px -1px rgb(0 0 0 / 0.1);
+  }
+
+  .btn-modern:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+
+  .text-responsive {
+    font-size: clamp(1.25rem, 4vw, 2rem);
+    line-height: 1.2;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .text-responsive-large {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    line-height: 1.1;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+}

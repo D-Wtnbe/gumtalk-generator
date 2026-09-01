@@ -19,4 +19,4 @@ const config = {
   tailwindStylesheet: "./src/styles/globals.css",
 };
 
-module.exports = config;
+export default config;
