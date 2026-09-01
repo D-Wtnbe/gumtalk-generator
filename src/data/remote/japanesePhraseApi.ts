@@ -1,14 +1,21 @@
 import { GoogleApis, google } from "googleapis";
-import { japanesePhraseContents } from "interfaces/sheet";
+import {
+  japanesePhraseContents,
+  japanesePhraseContentsSchema,
+} from "interfaces/sheet";
 
 const getSheets = () => {
   const googleapis = new GoogleApis();
   const scopes = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
   const jwt = new googleapis.auth.JWT(
-    process.env.GCP_SERVICEACCOUNT_EMAIL,
-    undefined,
-    (process.env.GCP_SERVICEACCOUNT_PRIVATE_KEY || "").replace(/\\n/g, "\n"),
-    scopes
+    {
+      email: process.env.GCP_SERVICEACCOUNT_EMAIL,
+      key: (process.env.GCP_SERVICEACCOUNT_PRIVATE_KEY || "").replace(
+        /\\n/g,
+        "\n"
+      ),
+      scopes,
+    }
   );
   return google.sheets({ version: "v4", auth: jwt });
 };
@@ -24,10 +31,11 @@ japanesePhraseContents[]
   const rows = response.data.values;
 
   if (rows) {
-    return rows.slice(1).map((row): japanesePhraseContents => {
-      return {
+    return rows.slice(1).flatMap((row): japanesePhraseContents[] => {
+      const parsed = japanesePhraseContentsSchema.safeParse({
         content: row[0],
-      };
+      });
+      return parsed.success ? [parsed.data] : [];
     });
   }
   return [];
