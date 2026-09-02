@@ -47,7 +47,7 @@ export const GoogleTrendCard = ({
             <a
               href={item.newsLink}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="group block rounded-lg bg-gray-50 p-4 transition-colors duration-300 hover:bg-gray-100"
             >
               <p className="font-zenMaru text-sm leading-relaxed text-pretty text-gray-600 group-hover:text-gray-800">

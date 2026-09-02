@@ -4,7 +4,13 @@ export const GoogleTrendContentSchema = z.object({
   date: z.string(),
   content: z.string(),
   newsTitle: z.string().nullable(),
-  newsLink: z.string().nullable(),
+  newsLink: z
+    .string()
+    .url()
+    .refine((value) => ["http:", "https:"].includes(new URL(value).protocol), {
+      message: "ニュースリンクはHTTP(S) URLである必要があります",
+    })
+    .nullable(),
 });
 
 export type GoogleTrendContent = z.infer<typeof GoogleTrendContentSchema>;
