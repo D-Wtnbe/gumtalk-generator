@@ -1,2 +1,5 @@
+packages:
+  - "."
+
 overrides:
   brace-expansion: 2.1.4
