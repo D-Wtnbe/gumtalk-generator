@@ -1,3 +1,5 @@
+allowBuilds:
+  unrs-resolver@1.12.2: true
 minimumReleaseAgeExclude:
   - '@eslint-react/ast@5.20.5'
   - '@eslint-react/core@5.20.5'
