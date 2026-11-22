@@ -2,13 +2,13 @@ allowBuilds:
   'unrs-resolver@1.12.2': true
 
 minimumReleaseAgeExclude:
-  - '@eslint-react/ast@5.20.5'
-  - '@eslint-react/core@5.20.5'
-  - '@eslint-react/eslint-plugin@5.20.5'
-  - '@eslint-react/eslint@5.20.5'
-  - '@eslint-react/jsx@5.20.5'
-  - '@eslint-react/shared@5.20.5'
-  - '@eslint-react/var@5.20.5'
+  - '@eslint-react/ast@5.20.5 || 5.30.6'
+  - '@eslint-react/core@5.20.5 || 5.30.6'
+  - '@eslint-react/eslint-plugin@5.20.5 || 5.30.6'
+  - '@eslint-react/eslint@5.20.5 || 5.30.6'
+  - '@eslint-react/jsx@5.20.5 || 5.30.6'
+  - '@eslint-react/shared@5.20.5 || 5.30.6'
+  - '@eslint-react/var@5.20.5 || 5.30.6'
   - '@typescript-eslint/eslint-plugin@8.70.1'
   - '@typescript-eslint/parser@8.70.1'
   - '@typescript-eslint/project-service@8.70.1'
@@ -19,10 +19,16 @@ minimumReleaseAgeExclude:
   - '@typescript-eslint/typescript-estree@8.70.1'
   - '@typescript-eslint/utils@8.70.1'
   - '@typescript-eslint/visitor-keys@8.70.1'
-  - eslint-plugin-react-dom@5.20.5
-  - eslint-plugin-react-jsx@5.20.5
-  - eslint-plugin-react-naming-convention@5.20.5
-  - eslint-plugin-react-rsc@5.20.5
-  - eslint-plugin-react-web-api@5.20.5
-  - eslint-plugin-react-x@5.20.5
+  - eslint-plugin-react-dom@5.20.5 || 5.30.6
+  - eslint-plugin-react-jsx@5.20.5 || 5.30.6
+  - eslint-plugin-react-naming-convention@5.20.5 || 5.30.6
+  - eslint-plugin-react-rsc@5.20.5 || 5.30.6
+  - eslint-plugin-react-web-api@5.20.5 || 5.30.6
+  - eslint-plugin-react-x@5.20.5 || 5.30.6
   - typescript-eslint@8.70.1
+
+overrides:
+  'brace-expansion@<1.1.21': ^1.1.21
+  'minimatch@<11.0.1': ^11.0.1
+  'qs@<=6.16.0': ^6.16.1
+  'source-map-js@<1.2.2': ^1.2.2
